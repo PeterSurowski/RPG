@@ -85,13 +85,26 @@ li a {
 	background-image: url("../images/zombie-one-cropped-243X355.png");
 	height: 355px;
 	width: 243px;
+	position: relative;
 }
 
 .hidden {
 	opacity: 0;
+	float: left;
 }
 
 .unhidden {
 	transition: opacity 2s ease;
 	opacity: 1;
+	float: left;
+	margin: 5em;
+
 }
+
+#choose {
+	float: right;
+	font-family: "Special Elite", sans-serif;
+	font-size: 1.5em;
+	color: #E9DE5D;
+	text-shadow: 1px 1px #000000;
+}	
