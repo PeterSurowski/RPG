@@ -1,5 +1,6 @@
 body {
 	background-color: black;
+	max-height: 400px;
 }
 
 header {
@@ -131,12 +132,13 @@ li a {
 }
 
 .hidden {
+	transition: opacity 2s ease;
 	opacity: 0;
 	float: left;
 }
 
 .unhidden {
-	transition: opacity 3s ease;
+	transition: opacity 2s ease;
 	opacity: 1;
 	margin: 5em 0 0 2em;
 }
@@ -150,4 +152,14 @@ li a {
 	left: 7em;
 	top: -4em;
 	float: left;
-}	
+}
+
+#fight-screen {
+	/*display: none;*/
+	height: 10em;
+	width: 90%;
+	background-color: red;
+	position: relative;
+	top: -2em;
+	
+}
