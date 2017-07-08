@@ -1,0 +1,84 @@
+body {
+	background-color: black;
+}
+
+header {
+	min-height: 1.5em;
+	font-family: "Montserrat", sans-serif;
+	padding: 1.5em;
+	opacity: 50%;
+	
+	z-index: 1;
+}
+
+#logo {
+	float: left;
+	color: white;
+	font-size: 1.5em;
+}
+
+#logo a {
+	text-decoration: none;
+	color: white;
+} 
+
+ul {
+	
+	right: -20em;
+	list-style-type: none;
+}
+
+li a {
+	text-decoration: none;
+	float: right;
+	color: white;
+	padding: 0 2em;
+}
+
+#background {
+	margin: 0 1.5em;
+	background-image: url("../images/background-1220X659.jpg");
+	position: relative;
+	max-width: 1330px;
+	max-height: 888px;
+	min-width: 30em;
+	min-height: 40em;
+}
+
+#instructions {
+	position: relative;
+	background: black;
+	background-opacity: 0.5;
+	color: #E9DE5D;
+	max-width: 30%;
+	padding: 1.5em;
+	left: 30%;
+	margin-top: 0em;
+}
+
+#instructions h1 {
+	font-size: 2em;
+	font-family: "Special Elite", sans-serif;
+	margin: .5em;
+	text-align: center;
+
+}
+
+#instructions h2 {
+	margin: 1em;
+	font-family: "Montserrat";
+}
+
+#instructions p {
+	font-family: "Montserrat";
+	margin: 1em;
+}
+
+#continue {
+	background: #E9DE5D;
+	color: black;
+	position: relative;
+	padding: .5em;
+	left: 4em;
+	font-family: "Montserrat";
+}
