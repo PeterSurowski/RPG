@@ -1,3 +1,5 @@
+var opponentChosen;
+
 function instructionsHider() {
 	var instructionsHider = document.getElementById('instructions');
 	instructionsHider.className = 'hidden';
@@ -10,8 +12,23 @@ function instructionsHider() {
 		var thirdAppears = document.getElementById('third-zombie');
 		thirdAppears.className = 'unhidden';
 		var chooseAppears = document.getElementById('choose');
-		chooseAppears.className = 'unhidden';	
-	}, 2000);	
+		chooseAppears.className = 'unhidden';
+	}, 2000);
+}
+
+function zombieImgAdderOne() {
+	document.getElementById('opponent-pic').innerHTML = '<img src="assets/images/zombie-one-cropped-243X355.png">';
+	document.getElementById('opponent-info').innerHTML = '<p id="description"><b>Description:</b> He looks as though he were once a strong man, but he has been dead for a long time and decay has somewhat weakened him. Take him down, but be careful.</p><p id="difficulty"><b>Difficulty:</b> Medium</p>';
+}
+
+function zombieImgAdderTwo() {
+	document.getElementById('opponent-pic').innerHTML = '<img src="assets/images/zombie-two-355X464.png">';
+	document.getElementById('opponent-info').innerHTML = '<p id="description"><b>Description:</b> Somehow his dead eyes seem to seeth with anger. He is strong and fast, but the strength of his attacks is erratic.</p><p id="difficulty"><b>Difficulty:</b> Hard</p>';
+}
+
+function zombieImgAdderThree() {
+	document.getElementById('opponent-pic').innerHTML = '<img src="assets/images/zombie-three-214X355.png">';
+	document.getElementById('opponent-info').innerHTML = '<p id="description"><b>Description:</b> He has not been dead for long, but he is missing an arm. Dispatch him quickly.</p><p id="difficulty"><b>Difficulty:</b> Easy</p>';
 }
 
 function fightZombie() {
@@ -24,3 +41,5 @@ function fightZombie() {
 		fightScreen.className = 'unhidden';
 	}, 2000);
 }
+
+

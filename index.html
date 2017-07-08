@@ -35,18 +35,21 @@
 			<h2>Choose your opponent</h2>
 		</div>
 
-		<div id="first-zombie" class="hidden" onclick="fightZombie()">
+		<div id="first-zombie" class="hidden" onclick="fightZombie(); zombieImgAdderOne();">
 		</div>
-		<div id="second-zombie" class="hidden">
+		<div id="second-zombie" class="hidden" onclick="fightZombie(); zombieImgAdderTwo();">
 		</div>
-		<div id="third-zombie" class="hidden">
+		<div id="third-zombie" class="hidden" onclick="fightZombie(); zombieImgAdderThree();">
 		</div>		
 
 	</div>
 
 	<div id="fight-screen" class="hidden">
-		<div id="player">
-		</div>
+		<div id="opponent-pic"></div>
+		<div id="opponent-info"></div>
+		<div id="opponent-hp"></div>
+		<div id="player-HP"></div>
+		<button type="submit" id="attack">ATTACK!</button>
 	</div>
 
 

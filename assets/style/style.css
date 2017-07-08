@@ -77,12 +77,14 @@ li a {
 	margin: 1em;
 	font-family: "Montserrat";
 	text-shadow: 1px 1px black;
+	line-height: 110%;
 }
 
 #instructions p {
 	font-family: "Montserrat";	
 	margin: 1em;
 	text-shadow: 3px 1px black;
+	line-height: 110%;
 }
 
 #continue {
@@ -155,11 +157,36 @@ li a {
 }
 
 #fight-screen {
-	/*display: none;*/
-	height: 10em;
+	height: 355px;
 	width: 90%;
 	background-color: red;
 	position: relative;
-	top: -2em;
-	
+	top: -3em;
+}
+
+#opponent-pic {
+	float: left;
+}
+
+#opponent-info {
+	font-family: "Montserrat", sans-serif;
+	font-size: 1em;
+	line-height: 110%;
+	position: relative;
+	left: 2em;
+	padding-top: 1em;
+	max-width: 75%;
+}
+
+#opponent-info p {
+	margin-top: 1em;
+}
+
+#attack {
+	background: #E9DE5D;
+	color: black;
+	position: relative;
+	padding: .5em;
+	left: 4em;
+	font-family: "Montserrat";	
 }
