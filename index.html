@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Cornered</title>
+	<title>Cornered!</title>
 	<!-- Meyer's reset -->
 	<link rel="stylesheet" type="text/css" href="https://meyerweb.com/eric/tools/css/reset/reset200802.css">
 	<!-- My style sheet -->
@@ -20,6 +20,7 @@
 
 	</header>
 	<div id="background">
+
 		<div id="instructions">
 			<h1>Cornered!</h1>
 			<hr>
@@ -29,19 +30,24 @@
 			<p>Watch out, they'll be attacking you back! You have HP too, and if your hit points run out, you'll be joining their legion.</p>
 			<p><button type="button" id="continue" onclick="instructionsHider()">Start fighting!</button>
 		</div></p>
-
+		
 		<div id="choose" class="hidden">
 			<h2>Choose your opponent</h2>
 		</div>
 
-		<div id="first-zombie" class="hidden" class="first-zombie">
+		<div id="first-zombie" class="hidden" onclick="fightZombie()">
 		</div>
-		<div class="zombie" id="second-zombie">
+		<div id="second-zombie" class="hidden">
 		</div>
-		<div class="zombie" id="third-zombie">
+		<div id="third-zombie" class="hidden">
 		</div>
+
+		<div id="fight-screen" class="hidden">
+		</div>
+
 		<div id="player">
 		</div>
+
 	</div>
 
 

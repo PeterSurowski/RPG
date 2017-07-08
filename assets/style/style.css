@@ -45,6 +45,16 @@ li a {
 	min-height: 40em;
 }
 
+.background-fade {
+	transition: opacity 2s ease;
+	opacity: 0.2;
+}
+
+.background-mover {
+	transition: all 2s ease;
+	transform: translate(0, 100%);
+}
+
 #instructions {
 	position: relative;
 	background: rgba(0, 0, 0, 0.5);	
@@ -64,12 +74,14 @@ li a {
 
 #instructions h2 {
 	margin: 1em;
-	font-family: "Montserrat";	
+	font-family: "Montserrat";
+	text-shadow: 1px 1px black;
 }
 
 #instructions p {
 	font-family: "Montserrat";	
 	margin: 1em;
+	text-shadow: 3px 1px black;
 }
 
 #continue {
@@ -86,6 +98,36 @@ li a {
 	height: 355px;
 	width: 243px;
 	position: relative;
+	float: left;
+}
+
+#first-zombie:hover {
+	filter: grayscale(50%);
+}
+
+#second-zombie {
+	background-image: url("../images/zombie-two-355X464.png");
+	height: 355px;
+	width: 464px;
+	position: relative;
+	float: left;
+}
+
+#second-zombie:hover {
+	filter: grayscale(50%);
+}
+
+
+#third-zombie {
+	background-image: url("../images/zombie-three-214X355.png");
+	height: 355px;
+	width: 214px;
+	position: relative;
+	float: left;
+}
+
+#third-zombie:hover {
+	filter: grayscale(50%);
 }
 
 .hidden {
@@ -94,17 +136,18 @@ li a {
 }
 
 .unhidden {
-	transition: opacity 2s ease;
+	transition: opacity 3s ease;
 	opacity: 1;
-	float: left;
-	margin: 5em;
-
+	margin: 5em 0 0 2em;
 }
 
 #choose {
-	float: right;
 	font-family: "Special Elite", sans-serif;
 	font-size: 1.5em;
 	color: #E9DE5D;
 	text-shadow: 1px 1px #000000;
+	position: absolute;
+	left: 7em;
+	top: -4em;
+	float: left;
 }	
