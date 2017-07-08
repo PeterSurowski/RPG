@@ -47,8 +47,7 @@ li a {
 
 #instructions {
 	position: relative;
-	background: black;
-	background-opacity: 0.5;
+	background: rgba(0, 0, 0, 0.5);	
 	color: #E9DE5D;
 	max-width: 30%;
 	padding: 1.5em;
@@ -61,16 +60,15 @@ li a {
 	font-family: "Special Elite", sans-serif;
 	margin: .5em;
 	text-align: center;
-
 }
 
 #instructions h2 {
 	margin: 1em;
-	font-family: "Montserrat";
+	font-family: "Montserrat";	
 }
 
 #instructions p {
-	font-family: "Montserrat";
+	font-family: "Montserrat";	
 	margin: 1em;
 }
 
@@ -80,5 +78,20 @@ li a {
 	position: relative;
 	padding: .5em;
 	left: 4em;
-	font-family: "Montserrat";
+	font-family: "Montserrat";	
+}
+
+#first-zombie {
+	background-image: url("../images/zombie-one-cropped-243X355.png");
+	height: 355px;
+	width: 243px;
+}
+
+.hidden {
+	opacity: 0;
+}
+
+.unhidden {
+	transition: opacity 2s ease;
+	opacity: 1;
 }

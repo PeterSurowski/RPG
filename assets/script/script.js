@@ -1,4 +1,7 @@
 function instructionsHider() {
-	var continueButton = document.getElementById('instructions');
-	continueButton.style.visibility = "hidden";
+	var instructionsHider = document.getElementById('instructions');
+	instructionsHider.style.display = "none";
+	var zombiesAppear = document.getElementById('first-zombie');
+	zombiesAppear.className = 'unhidden';
+	
 }
