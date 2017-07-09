@@ -50,7 +50,6 @@ function fightZombie() {
 	setTimeout(function() {
 		backgroundChanger.style.display = 'none';
 		var fightScreen = document.getElementById('fight-screen');
-		fightScreen.style.display = 'block';
 		fightScreen.className = 'unhidden';
 	}, 2000);
 }
@@ -70,11 +69,14 @@ function fightButton() {
 		alert('opponent hp is 0 or lower.')
 		var fightScreen = document.getElementById('fight-screen');
 		fightScreen.className = 'background-fade background-mover';
+		var backgroundUnhider = document.getElementById('background');
 		setTimeout(function() {
-			fightScreen.style.display = 'none';
-			var backgroundUnhider = document.getElementById('background');
 			backgroundUnhider.style.display = 'block';
-			backgroundUnhider.className = 'unhidden';
+			backgroundUnhider.className = 'hidden';
+			fightScreen.style.display = 'none';
+			setTimeout(function() {
+				backgroundUnhider.className = 'unhidden';
+			}, 1)
 		}, 2000);
 	}
 	//Waits a moment, then takes some HP from player.

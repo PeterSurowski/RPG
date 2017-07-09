@@ -48,7 +48,7 @@ li a {
 
 .background-fade {
 	transition: opacity 2s ease;
-	opacity: 0.2;
+	opacity: 0;
 }
 
 .background-mover {
@@ -191,11 +191,6 @@ li a {
 	margin-top: 1.5em;
 	left: 4em;
 	font-family: "Montserrat";	
-}
-
-#player-hp {
-	width: 50em;
-	heigth: 1em;
 }
 
 .overlay {
