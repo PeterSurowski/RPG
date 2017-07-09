@@ -192,3 +192,12 @@ li a {
 	left: 4em;
 	font-family: "Montserrat";	
 }
+
+#player-hp {
+	width: 50em;
+	heigth: 1em;
+}
+
+.overlay {
+    background-image: -webkit-radial-gradient(rgba(193, 66, 66, 1.0) 0%, black 75%);	
+}
