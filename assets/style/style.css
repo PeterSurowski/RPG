@@ -159,7 +159,8 @@ li a {
 #fight-screen {
 	height: 355px;
 	width: 90%;
-	background-color: red;
+	background-color: black;
+	color: white;
 	position: relative;
 	top: -3em;
 }
@@ -168,7 +169,7 @@ li a {
 	float: left;
 }
 
-#opponent-info {
+#opponent-info, #hp, #playerhp {
 	font-family: "Montserrat", sans-serif;
 	font-size: 1em;
 	line-height: 110%;
@@ -187,6 +188,7 @@ li a {
 	color: black;
 	position: relative;
 	padding: .5em;
+	margin-top: 1.5em;
 	left: 4em;
 	font-family: "Montserrat";	
 }
