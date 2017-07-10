@@ -25,9 +25,9 @@
 			<h1>Cornered!</h1>
 			<hr>
 			<h2>Instructions</h2>			
-			<p>There's been a zombie outbreak, and you can't run from the undead horde. You're backed against a wall, and your only chance for survival is to fight.</p>
-			<p>Choose an opponent to fight and then use the attack button to swing your machete. You've taken it down when its hit points (HP) reach 0.</p>
-			<p>Watch out, they'll be attacking you back! You have HP too, and if your hit points run out, you'll be joining their legion.</p>
+			<p>You've been cornered by a horde of undead. Your only chance for survival is to fight.</p>
+			<p>Choose an opponent and use the attack button to swing your machete. You've defeated the monster when its hit points (HP) reach 0.</p>
+			<p>Watch out, they'll be attacking you back! If your HP runs out, you'll be joining their legion.</p>
 			<p><button type="button" id="continue" onclick="instructionsHider()">Start fighting!</button>
 		</div></p>
 		
@@ -35,13 +35,12 @@
 			<h2>Choose your opponent</h2>
 		</div>
 
-		<div id="first-zombie" class="hidden" onclick="fightZombie(); zombieImgAdderOne();">
+		<div id="first-zombie" class="hidden" onclick="fightZombie(); zombieImgAdderOne(); zombiesClickedOne();">
 		</div>
-		<div id="second-zombie" class="hidden" onclick="fightZombie(); zombieImgAdderTwo();">
+		<div id="second-zombie" class="hidden" onclick="fightZombie(); zombieImgAdderTwo(); zombiesClickedTwo();">
 		</div>
-		<div id="third-zombie" class="hidden" onclick="fightZombie(); zombieImgAdderThree();">
-		</div>		
-
+		<div id="third-zombie" class="hidden" onclick="fightZombie(); zombieImgAdderThree(); zombiesClickedThree();">
+		</div>
 	</div>
 
 	<div id="fight-screen" class="hidden">

@@ -4,6 +4,7 @@ var opponentTwoHp = 50;
 var opponentThreeHp = 20;
 var playerHp = 100;
 var ranNumPlayer, ranNumZombieOne, ranNumZombieTwo,ranNumZombieThree;
+var zombiesClicked = [];
 
 function instructionsHider() {
 	var instructionsHider = document.getElementById('instructions');
@@ -43,6 +44,23 @@ function zombieImgAdderThree() {
 	document.getElementById('player-hp').innerHTML = '<h3 id="playerhp"><b>Your HP :  </b>' + playerHp + '</h3>';
 }
 
+function zombiesClickedOne() {
+	//Continue coding here
+	zombiesClicked.push('1');
+	alert(zombiesClicked);
+}
+
+function zombiesClickedTwo() {
+	//Continue coding here
+	zombiesClicked.push('2');
+	alert(zombiesClicked);
+}
+
+function zombiesClickedThree() {
+	//Continue coding here
+	zombiesClicked.push('3');
+	alert(zombiesClicked);
+}
 
 function fightZombie() {
 	var backgroundChanger = document.getElementById('background');
@@ -51,10 +69,12 @@ function fightZombie() {
 		backgroundChanger.style.display = 'none';
 		var fightScreen = document.getElementById('fight-screen');
 		fightScreen.className = 'unhidden';
-	}, 2000);
+	}, 1000);
 }
 
 function fightButton() {
+	//Disables attack button (reenabled later in function).
+	document.getElementById('attack').disabled = true;
 	//Puts a flash of red behind opponent-pic.
 	document.getElementById('opponent-pic').classList.add('overlay');
 	setTimeout(function() {
@@ -66,29 +86,38 @@ function fightButton() {
 	document.getElementById('opponent-hp').innerHTML = '<h3 id="hp"><b>Enemy HP :  </b>' + opponentOneHp + '</h3>';
 	//If opponent HP reaches 0, return to "choose" screen.
 	if (opponentOneHp <= 0) {
-		alert('opponent hp is 0 or lower.')
+		//Sets opponent HP to 0.
+		document.getElementById('opponent-hp').innerHTML = '<h3 id="hp"><b>Enemy HP :  0</b></h3>';
+		//Triggers animation to move fight screen down.
 		var fightScreen = document.getElementById('fight-screen');
 		fightScreen.className = 'background-fade background-mover';
-		var backgroundUnhider = document.getElementById('background');
+		//Causes choose screen to change states to visible after the attack screen goes away.
 		setTimeout(function() {
+			var backgroundUnhider = document.getElementById('background');
 			backgroundUnhider.style.display = 'block';
 			backgroundUnhider.className = 'hidden';
 			fightScreen.style.display = 'none';
+			//Makes defeated opponent disappear from choose screen. (setTimeout is a bug fix.)
 			setTimeout(function() {
 				backgroundUnhider.className = 'unhidden';
+				var zombieInvisible = document.getElementById('first-zombie');
+				zombieInvisible.style.visibility = 'hidden';
 			}, 1)
 		}, 2000);
+		return;
 	}
 	//Waits a moment, then takes some HP from player.
 	ranNumZombieOne = Math.floor((Math.random() * 10) + 10);
 	setTimeout(function() {
+		//Reactivates attack button
+		document.getElementById('attack').disabled = false;	
 		playerHp = playerHp - ranNumZombieOne;
-		document.getElementById('player-hp').innerHTML = '<h3 id="playerhp"><b>Your HP :  </b>' + playerHp + '</h3>';
+		document.getElementById('player-hp').innerHTML = '<h3 id="playerhp"><b>Your HP :  </b>' + playerHp + '</h3>';		
 		document.getElementById('fight-screen').classList.add('overlay');
 		//Makes a flash of red on the fight screen.
-		setTimeout(function() {
+		setTimeout(function() {		
 			document.getElementById('fight-screen').classList.remove('overlay');
-	}, 50);
-	},1000);
+		}, 50);
+	}, 1000);
 	
 }
