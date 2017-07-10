@@ -1,11 +1,12 @@
-var opponentChosen;
 var opponentOneHp = 30;
 var opponentTwoHp = 50;
 var opponentThreeHp = 20;
 var playerHp = 100;
 var ranNumPlayer, ranNumZombieOne, ranNumZombieTwo,ranNumZombieThree;
 var zombiesClicked = [];
+var currentOpponent;
 
+//Hides the instructions and unhides the opponents and headline above.
 function instructionsHider() {
 	var instructionsHider = document.getElementById('instructions');
 	instructionsHider.className = 'hidden';
@@ -36,7 +37,6 @@ function zombieImgAdderTwo() {
 	document.getElementById('player-hp').innerHTML = '<h3 id="playerhp"><b>Your HP :  </b>' + playerHp + '</h3>';
 }
 
-
 function zombieImgAdderThree() {
 	document.getElementById('opponent-pic').innerHTML = '<img src="assets/images/zombie-three-214X355.png">';
 	document.getElementById('opponent-info').innerHTML = '<p id="description"><b>Description:</b> He has not been dead for long, but he is missing an arm. Dispatch him quickly.</p><p id="difficulty"><b>Difficulty:</b> Easy</p>';
@@ -44,27 +44,27 @@ function zombieImgAdderThree() {
 	document.getElementById('player-hp').innerHTML = '<h3 id="playerhp"><b>Your HP :  </b>' + playerHp + '</h3>';
 }
 
+//Next three funtions add an identifier to the zombiesClicked array.
 function zombiesClickedOne() {
-	//Continue coding here
 	zombiesClicked.push('1');
-	alert(zombiesClicked);
+	currentOpponent = opponentOneHp;
 }
 
 function zombiesClickedTwo() {
-	//Continue coding here
 	zombiesClicked.push('2');
-	alert(zombiesClicked);
+	currentOpponent = opponentTwoHp;
 }
 
 function zombiesClickedThree() {
-	//Continue coding here
 	zombiesClicked.push('3');
-	alert(zombiesClicked);
+	currentOpponent = opponentThreeHp;
 }
 
 function fightZombie() {
+	//Hides background and animates it down.
 	var backgroundChanger = document.getElementById('background');
 	backgroundChanger.className = 'background-fade background-mover';
+	//Reveals fight screen.
 	setTimeout(function() {
 		backgroundChanger.style.display = 'none';
 		var fightScreen = document.getElementById('fight-screen');
@@ -73,7 +73,7 @@ function fightZombie() {
 }
 
 function fightButton() {
-	//Disables attack button (reenabled later in function).
+	//Disables attack button after being clicked(reenabled later in function).
 	document.getElementById('attack').disabled = true;
 	//Puts a flash of red behind opponent-pic.
 	document.getElementById('opponent-pic').classList.add('overlay');
@@ -82,10 +82,10 @@ function fightButton() {
 	}, 50);
 	//Takes some HP from opponent.
 	ranNumPlayer = Math.floor((Math.random() * 10) + 10);
-	opponentOneHp = opponentOneHp - ranNumPlayer;
-	document.getElementById('opponent-hp').innerHTML = '<h3 id="hp"><b>Enemy HP :  </b>' + opponentOneHp + '</h3>';
+	currentOpponent = currentOpponent - ranNumPlayer;
+	document.getElementById('opponent-hp').innerHTML = '<h3 id="hp"><b>Enemy HP :  </b>' + currentOpponent + '</h3>';
 	//If opponent HP reaches 0, return to "choose" screen.
-	if (opponentOneHp <= 0) {
+	if (currentOpponent <= 0) {
 		//Sets opponent HP to 0.
 		document.getElementById('opponent-hp').innerHTML = '<h3 id="hp"><b>Enemy HP :  0</b></h3>';
 		//Triggers animation to move fight screen down.
@@ -96,13 +96,24 @@ function fightButton() {
 			var backgroundUnhider = document.getElementById('background');
 			backgroundUnhider.style.display = 'block';
 			backgroundUnhider.className = 'hidden';
-			fightScreen.style.display = 'none';
 			//Makes defeated opponent disappear from choose screen. (setTimeout is a bug fix.)
 			setTimeout(function() {
 				backgroundUnhider.className = 'unhidden';
-				var zombieInvisible = document.getElementById('first-zombie');
-				zombieInvisible.style.visibility = 'hidden';
-			}, 1)
+				if (zombiesClicked[0] === '1' || zombiesClicked[1] === '1' || zombiesClicked[2] === '1') {
+					var zombieInvisible = document.getElementById('first-zombie');
+					zombieInvisible.style.visibility = 'hidden';
+				}
+				if (zombiesClicked[0] === '2' || zombiesClicked[1] === '2' || zombiesClicked[2] === '2') {
+					var zombieInvisible = document.getElementById('second-zombie');
+					zombieInvisible.style.visibility = 'hidden';
+				}
+				if (zombiesClicked[0] === '3' || zombiesClicked[1] === '3' || zombiesClicked[2] === '3') {
+					var zombieInvisible = document.getElementById('third-zombie');
+					zombieInvisible.style.visibility = 'hidden';
+				}
+			}, 5)
+			//Reactivates attack button so it will be ready in the next fight.
+			document.getElementById('attack').disabled = false;
 		}, 2000);
 		return;
 	}
