@@ -48,18 +48,21 @@ function zombieImgAdderThree() {
 //Next three funtions add an identifier to the zombiesClicked array.
 function zombiesClickedOne() {
 	zombiesClicked.push('1');
+	console.log(zombiesClicked);
 	currentOpponent = opponentOneHp;
 	currentAttackPower = [15, 5];
 }
 
 function zombiesClickedTwo() {
 	zombiesClicked.push('2');
+	console.log(zombiesClicked);
 	currentOpponent = opponentTwoHp;
 	currentAttackPower = [40, 10];
 }
 
 function zombiesClickedThree() {
 	zombiesClicked.push('3');
+	console.log(zombiesClicked);
 	currentOpponent = opponentThreeHp;
 	currentAttackPower = [10, 10];
 }
@@ -92,9 +95,28 @@ function fightButton() {
 	if (currentOpponent <= 0) {
 		//Sets opponent HP to 0.
 		document.getElementById('opponent-hp').innerHTML = '<h3 id="hp"><b>Enemy HP :  0</b></h3>';
-		//Triggers animation to move fight screen down.
+		//Triggers animation to move fight screen down and fade away.
 		var fightScreen = document.getElementById('fight-screen');
 		fightScreen.className = 'background-fade background-mover';
+		//If you've clicked three zombies at this point...
+		if (zombiesClicked.length >= 3) {
+			//display = 'none' the game-over screen, which would otherwise interfere with presentation.
+			document.getElementById('game-over').style.display = 'none';
+			//This is to prevent the background div from reappearing.
+			document.getElementById('background').style.display = 'none';
+			//Wait for the fight-screen animation and fade out to finish, then display 'none' it.
+			setTimeout(function() {
+				document.getElementById('fight-screen').style.display = 'none';
+				document.getElementById('you-win').style.display = 'block';
+			}, 2050);
+				//Then wait for all the above stuff to finish and unhide you-win and you-win-pic.
+			setTimeout(function() {
+				document.getElementById('you-win').className = 'unhidden';
+				document.getElementById('you-win-pic').className = 'unhidden';
+			}, 2100);	
+			//This ends the game.
+			return;		
+		}		
 		//Causes choose screen to change states to visible after the attack screen goes away.
 		setTimeout(function() {
 			var backgroundUnhider = document.getElementById('background');
@@ -122,7 +144,6 @@ function fightButton() {
 		return;
 	}
 	//Waits a moment, then takes some HP from player.
-	//continue coding here
 	ranNumZombieOne = Math.floor((Math.random() * currentAttackPower[0]) + currentAttackPower[1]);
 	setTimeout(function() {
 		//Reactivates attack button
@@ -134,6 +155,22 @@ function fightButton() {
 		setTimeout(function() {		
 			document.getElementById('fight-screen').classList.remove('overlay');
 		}, 50);
+		//If zombies take down your HP...
+		if (playerHp <= 0) {
+			//Sets your HP to 0.
+			document.getElementById('player-hp').innerHTML = '<h3 id="hp"><b>Your HP :  0</b></h3>';
+			//Waits a moment, then triggers animation to move fight screen down.
+			setTimeout(function() {
+				var fightScreen = document.getElementById('fight-screen');
+				fightScreen.className = 'background-fade background-mover';
+				//Sets game over screen's display to block instead of none.
+				document.getElementById('game-over').style.display = 'block';
+				//Waits about two secs, then shows game over screen.
+				setTimeout(function() {					
+					document.getElementById('game-over').className = 'unhidden';
+					document.getElementById('fight-screen', 'choose', 'background').style.display = 'none';
+				}, 2005)
+			}, 1000);
+		}
 	}, 1000);
-	
 }

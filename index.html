@@ -17,10 +17,9 @@
 			<li><a href="#">making of</a></li>
 			<li><a href="#">portfolio</a></li>
 		</ul>
-
 	</header>
-	<div id="background">
 
+	<div id="background">
 		<div id="instructions">
 			<h1>Cornered!</h1>
 			<hr>
@@ -51,6 +50,19 @@
 		<div id="player-hp"></div>
 		<button type="submit" id="attack" onclick="fightButton()">ATTACK!</button>
 	</div>
+
+	<div id="game-over" class="hidden">
+		<h1>You died.</h1>
+	</div>
+
+	<div id="you-win" class="hidden">
+		<div>
+			<h1>You did it!</h1>
+			<hr>
+			<p>You sent three undead back to their graves and quickly slipped past the rest. Good work!</p>
+		</div>	
+	</div>
+	<img id="you-win-pic" class="hidden" src="assets/images/you-win-400X300.png">
 
 
 <!-- Linking my JavaScript -->

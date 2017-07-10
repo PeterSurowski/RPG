@@ -196,3 +196,50 @@ li a {
 .overlay {
     background-image: -webkit-radial-gradient(rgba(193, 66, 66, 1.0) 0%, black 75%);	
 }
+
+#game-over {
+	display: none;
+	background-image: url('../images/gameover2-1024X576.png');
+	height: 576px;
+	width: 1024px;
+	position: relative;
+	top: -4.5em;
+	color: #E9DE5D;
+	font-family: "Special Elite", sans-serif;
+	font-size: 2em;
+}
+
+#game-over h1 {
+	margin: 3em 0 0 2em;
+}
+
+#you-win {
+	display: none;
+	float: left;
+	position: relative;
+	top: 10em;
+	color: white;
+	width: 15em;
+	margin: 0 4em 0 4em;
+}
+
+#you-win img {
+	top: 10em;
+}
+
+#you-win h1 p {	
+	line-height: 1.2em;
+	color: white;
+	font-family: "Montserrat", sans-serif;
+}
+
+#you-win h1 {
+	font-family: "Montserrat", sans-serif;
+	font-size: 2em;
+	margin-bottom: 1em;
+}
+
+#you-win p {
+	font-family: "Montserrat", sans-serif;
+	font-size: 1.5em;
+}
