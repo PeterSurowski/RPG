@@ -5,6 +5,7 @@ var playerHp = 100;
 var ranNumPlayer, ranNumZombieOne, ranNumZombieTwo,ranNumZombieThree;
 var zombiesClicked = [];
 var currentOpponent;
+var currentAttackPower = [];
 
 //Hides the instructions and unhides the opponents and headline above.
 function instructionsHider() {
@@ -48,16 +49,19 @@ function zombieImgAdderThree() {
 function zombiesClickedOne() {
 	zombiesClicked.push('1');
 	currentOpponent = opponentOneHp;
+	currentAttackPower = [15, 5];
 }
 
 function zombiesClickedTwo() {
 	zombiesClicked.push('2');
 	currentOpponent = opponentTwoHp;
+	currentAttackPower = [40, 10];
 }
 
 function zombiesClickedThree() {
 	zombiesClicked.push('3');
 	currentOpponent = opponentThreeHp;
+	currentAttackPower = [10, 10];
 }
 
 function fightZombie() {
@@ -118,7 +122,8 @@ function fightButton() {
 		return;
 	}
 	//Waits a moment, then takes some HP from player.
-	ranNumZombieOne = Math.floor((Math.random() * 10) + 10);
+	//continue coding here
+	ranNumZombieOne = Math.floor((Math.random() * currentAttackPower[0]) + currentAttackPower[1]);
 	setTimeout(function() {
 		//Reactivates attack button
 		document.getElementById('attack').disabled = false;	
