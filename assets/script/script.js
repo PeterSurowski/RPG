@@ -117,7 +117,7 @@ function fightButton() {
 		//Causes choose screen to change states to visible after the attack screen goes away.
 		setTimeout(function() {
 			$('#background').show();
-			$('#background').toggleClass('background-fade background-mover').toggleClass('unhidden');
+			$('#background').toggleClass('background-fade background-mover');
 			$('#fight-screen').hide();
 			//Makes defeated opponent disappear from choose screen. (setTimeout is a bug fix.)
 			setTimeout(function() {
@@ -132,10 +132,8 @@ function fightButton() {
 					$('#third-zombie').css('visibility', 'hidden');
 				}
 			}, 5)
-			//Removes background-fade and background-mover classes from fight-screen.
-			$('#fight-screen').removeClass('background-fade background-mover');
 			//Replaces unhidden class to background element.
-			$('#background').addClass('unhidden');
+			$('#background').toggleClass('unhidden');
 			//Reactivates attack button so it will be ready in the next fight.
 			$('#attack').prop('disabled', false);
 		}, 2000);
