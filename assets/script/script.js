@@ -117,11 +117,11 @@ function fightButton() {
 		//Causes choose screen to change states to visible after the attack screen goes away.
 		setTimeout(function() {
 			$('#background').show();
-			$('#background').removeClass('background-fade background-mover hidden').toggleClass('unhidden');
+			$('#background').toggleClass('background-fade background-mover').toggleClass('unhidden');
 			$('#fight-screen').hide();
 			//Makes defeated opponent disappear from choose screen. (setTimeout is a bug fix.)
 			setTimeout(function() {
-				$('#background').toggleClass('unhidden');
+				$('#background').addClass('unhidden');
 				if (zombiesClicked[0] === '1' || zombiesClicked[1] === '1' || zombiesClicked[2] === '1') {
 					$('#first-zombie').css('visibility', 'hidden');
 				}
