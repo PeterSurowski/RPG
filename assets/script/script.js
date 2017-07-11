@@ -72,7 +72,7 @@ function fightZombie() {
 	//Reveals fight screen.
 	setTimeout(function() {
 		$('#background').hide();
-		$('#fight-screen').toggleClass('unhidden');
+		$('#fight-screen').show().removeClass('hidden').toggleClass('unhidden');
 	}, 1000);
 }
 
@@ -93,8 +93,7 @@ function fightButton() {
 		//Sets opponent HP to 0.
 		$('#opponent-hp').html('<h3 id="hp"><b>Enemy HP :  0</b></h3>');
 		//Triggers animation to move fight screen down and fade away.
-		$('#fight-screen').toggleClass('unhidden hidden');
-		$('#fight-screen').addClass('background-fade background-mover');
+		$('#fight-screen').toggleClass('unhidden background-fade background-mover');
 		//If you've clicked three zombies at this point it ends the game in a you-win screen.
 		if (zombiesClicked.length >= 3) {
 			//display = 'none' the game-over screen, which would otherwise interfere with presentation.
@@ -121,6 +120,8 @@ function fightButton() {
 			$('#fight-screen').hide();
 			//Makes defeated opponent disappear from choose screen. (setTimeout is a bug fix.)
 			setTimeout(function() {
+				//Toggles backgrond-fade and background-mover back off.
+				$('#fight-screen').toggleClass('background-fade background-mover');
 				$('#background').addClass('unhidden');
 				if (zombiesClicked[0] === '1' || zombiesClicked[1] === '1' || zombiesClicked[2] === '1') {
 					$('#first-zombie').css('visibility', 'hidden');
