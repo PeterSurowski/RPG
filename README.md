@@ -1,2 +1,2 @@
-# RPG
-You've been cornered during a zombie outbreak. The only way out is to fight!
+# RPG-jQuery
+The same zombie game, but this one is written in jQuery.
