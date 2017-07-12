@@ -33,7 +33,7 @@ function zombieImgAdderOne() {
 
 function zombieImgAdderTwo() {
 	document.getElementById('opponent-pic').innerHTML = '<img src="assets/images/zombie-two-355X464.png">';
-	document.getElementById('opponent-info').innerHTML = '<p id="description"><b>Description:</b> Somehow his dead eyes seem to seeth with anger. He is strong and fast, but the strength of his attacks is erratic.</p><p id="difficulty"><b>Difficulty:</b> Hard</p>';
+	document.getElementById('opponent-info').innerHTML = '<p id="description"><b>Description:</b> Somehow his dead eyes seem to seethe with anger. He is strong and fast, but the strength of his attacks is erratic.</p><p id="difficulty"><b>Difficulty:</b> Hard</p>';
 	document.getElementById('opponent-hp').innerHTML = '<h3 id="hp"><b>Enemy HP :  </b>' + opponentTwoHp + '</h3>';
 	document.getElementById('player-hp').innerHTML = '<h3 id="playerhp"><b>Your HP :  </b>' + playerHp + '</h3>';
 }
